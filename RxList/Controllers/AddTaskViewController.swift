@@ -14,6 +14,13 @@ class AddTaskViewController:UIViewController {
     @IBOutlet weak var prioritySegmentedControl: UISegmentedControl!
     @IBOutlet weak var taskTextField: UITextField!
     
+    //MARK: - Properties
+    private let taskSubject = PublishSubject<Task>()
+    
+    var taskSubjectObservable: Observable<Task> {
+        return taskSubject.asObservable()
+    }
+    
     
     //MARK: - Life cycle
     override func viewDidLoad() {
@@ -27,7 +34,8 @@ class AddTaskViewController:UIViewController {
               let title = self.taskTextField.text else { return }
         
         let task = Task(title: title, priority: priority)
-        
+        taskSubject.onNext(task)
+        self.dismiss(animated: true)
     }
     
 }

@@ -26,18 +26,41 @@
                                 </segments>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="selectedSegmentTintColor" systemColor="systemIndigoColor"/>
+                                <connections>
+                                    <action selector="priorityValueChangedWithSegmentedControl:" destination="BYZ-38-t0r" eventType="valueChanged" id="zv3-zR-rG4"/>
+                                </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="d3I-Po-gsM">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="d3I-Po-gsM">
                                 <rect key="frame" x="16" y="171" width="382" height="691"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaskCell" id="VdB-nZ-eYY">
-                                        <rect key="frame" x="0.0" y="44.5" width="382" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaskCell" id="VdB-nZ-eYY" customClass="TaskTableViewCell" customModule="RxList" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="382" height="44.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VdB-nZ-eYY" id="ErO-y3-9Ws">
-                                            <rect key="frame" x="0.0" y="0.0" width="382" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyI-hu-tUy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="44.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="Ywc-fI-gog"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="eyI-hu-tUy" firstAttribute="top" secondItem="ErO-y3-9Ws" secondAttribute="top" id="L06-ED-lgN"/>
+                                                <constraint firstItem="eyI-hu-tUy" firstAttribute="leading" secondItem="ErO-y3-9Ws" secondAttribute="leading" id="Vyq-bL-O7b"/>
+                                                <constraint firstAttribute="bottom" secondItem="eyI-hu-tUy" secondAttribute="bottom" id="ddD-zj-qdY"/>
+                                                <constraint firstAttribute="trailing" secondItem="eyI-hu-tUy" secondAttribute="trailing" id="t55-38-rRF"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="title" destination="eyI-hu-tUy" id="p26-Tn-err"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
